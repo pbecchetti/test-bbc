@@ -1,0 +1,55 @@
+<h1>Trips from Paris to Lyon today</h1>
+<div class="nb">Number of trips: {{ numberTrips }}</div>
+
+<!-- TODO IF RESULT OR NOT -->
+<div *ngIf="trips.length > 0; else noTrips">
+  <div
+    class="trip"
+    *ngFor="
+      let trip of trips | slice: (currentPage - 1) * limit:currentPage * limit
+    "
+  >
+    <div class="trip-data">
+      <span class="label">From:</span> {{ trip.waypoints[0].place.city }}
+      <br />
+      <span class="meeting"> Meeting Point: {{ trip.depart }}</span>
+    </div>
+    <div class="trip-data">
+      <span class="label">To:</span> {{ trip.waypoints[1].place.city }}
+      <br />
+      <span class="meeting"> Meeting Point: {{ trip.arrival }}</span>
+    </div>
+    <div class="trip-data">
+      <span class="label">Departure Time:</span>
+      {{ trip.waypoints[0].date_time | date: "shortTime" }}
+    </div>
+    <div class="trip-data">
+      <span class="label">Approximal Arrival Time:</span>
+      {{ trip.waypoints[1].date_time | date: "shortTime" }}
+    </div>
+    <div class="trip-data">
+      <span class="label">Price:</span> {{ trip.price.amount }}
+      {{ trip.price.currency }}
+    </div>
+    <div class="trip-data" *ngIf="trip.vehicle">
+      <span class="label"> Vehicle:</span> {{ trip.vehicle.make }} -
+      {{ trip.vehicle.model }}
+    </div>
+    <div class="trip-data">
+      <span class="label"> Number of seats left:</span> {{ trip.seatLefts }}
+    </div>
+    <div class="trip-data">
+      <a [href]="trip.link" target="_blank"
+        >Click to view more on Blablacar's website</a
+      >
+    </div>
+  </div>
+  <app-pagination
+    [(currentPage)]="currentPage"
+    [(limit)]="limit"
+    [nbItems]="trips.length"
+  ></app-pagination>
+</div>
+<ng-template #noTrips>
+  <div>No trips to show</div>
+</ng-template>

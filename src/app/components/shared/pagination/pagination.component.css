@@ -1,0 +1,23 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+ul {
+  list-style-type: none;
+}
+.page-item {
+  margin: 10px;
+}
+.page-item button {
+  cursor: pointer;
+  background-color: #cfebf7;
+  border: 1px solid #96d8f5;
+  border-radius: 5px;
+  padding: 7px;
+}
+.page-item.active button {
+  background-color: #96d8f5;
+}
+.disabled {
+  display: none;
+}

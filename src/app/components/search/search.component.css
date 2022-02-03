@@ -1,0 +1,20 @@
+h1,
+.nb {
+  padding-left: 4px;
+}
+.trip {
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+  background-color: white;
+}
+.trip-data {
+  padding: 7px 0;
+}
+.label {
+  font-weight: 600;
+}
+.meeting {
+  font-size: 13px;
+  color: #8c8c8c;
+}

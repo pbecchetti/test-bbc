@@ -1,0 +1,43 @@
+<nav class="pagination-list">
+  <ul class="pagination">
+    <li class="page-item" [class.disabled]="currentPage === 1">
+      <button class="page-link" (click)="currentPage = currentPage - 1">
+        Previous
+      </button>
+    </li>
+    <li class="page-item" [class.active]="currentPage === 1">
+      <button class="page-link" (click)="currentPage = 1">1</button>
+    </li>
+    <li class="page-item" *ngIf="currentPage > 4">
+      <button class="page-link">...</button>
+    </li>
+    <ng-container *ngFor="let i of [-2, -1, 0, 1, 2]">
+      <li
+        class="page-item"
+        *ngIf="currentPage + i > 1 && currentPage + i < totalPages"
+        [class.active]="currentPage === currentPage + i"
+      >
+        <button class="page-link" (click)="currentPage = currentPage + i">
+          {{ currentPage + i }}
+        </button>
+      </li>
+    </ng-container>
+    <li class="page-item" *ngIf="currentPage < totalPages - 3">
+      <button class="page-link">...</button>
+    </li>
+    <li
+      class="page-item"
+      *ngIf="totalPages > 1"
+      [class.active]="currentPage === totalPages"
+    >
+      <button class="page-link" (click)="currentPage = totalPages">
+        {{ totalPages }}
+      </button>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage === totalPages">
+      <button class="page-link" (click)="currentPage = currentPage + 1">
+        Next
+      </button>
+    </li>
+  </ul>
+</nav>
