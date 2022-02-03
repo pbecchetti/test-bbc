@@ -7,8 +7,7 @@ import { retry, catchError } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class SearchService {
-  //TODO DATE
-  today = '2022-02-07T00:00:00.000Z';
+  today = new Date().toISOString();
 
   // API urls from blablacar
   private APIKEY = 'YzbiA8L6DcqxTvSna1lOFQQU66FosDVs';
@@ -40,6 +39,7 @@ export class SearchService {
   // Error handling
   handleError(error: any) {
     let errorMessage = '';
+    let errorCode = error.status;
     if (error.error instanceof ErrorEvent) {
       // Get client-side error
       errorMessage = error.error.message;
@@ -48,6 +48,6 @@ export class SearchService {
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
     console.log(errorMessage);
-    return throwError(errorMessage);
+    return throwError(errorCode);
   }
 }

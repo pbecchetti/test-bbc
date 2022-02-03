@@ -1,6 +1,13 @@
 h1,
 .nb {
-  padding-left: 4px;
+  padding-left: 25px;
+}
+.no-trip,
+.error {
+  margin: 15px 25px;
+}
+.error {
+  color: red;
 }
 .trip {
   border-radius: 10px;

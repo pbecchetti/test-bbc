@@ -1,7 +1,7 @@
 <h1>Trips from Paris to Lyon today</h1>
-<div class="nb">Number of total trips: {{ numberTrips }}</div>
 
 <div *ngIf="trips.length > 0; else noTrips">
+  <div class="nb">Number of total trips: {{ numberTrips }}</div>
   <div
     class="trip"
     *ngFor="
@@ -51,4 +51,5 @@
 </div>
 <ng-template #noTrips>
   <div class="no-trip">No trips to show</div>
+  <div class="error" *ngIf="message">{{ message }}</div>
 </ng-template>
