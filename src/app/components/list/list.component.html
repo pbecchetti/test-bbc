@@ -1,7 +1,6 @@
 <h1>Trips from Paris to Lyon today</h1>
-<div class="nb">Number of trips: {{ numberTrips }}</div>
+<div class="nb">Number of total trips: {{ numberTrips }}</div>
 
-<!-- TODO IF RESULT OR NOT -->
 <div *ngIf="trips.length > 0; else noTrips">
   <div
     class="trip"
@@ -51,5 +50,5 @@
   ></app-pagination>
 </div>
 <ng-template #noTrips>
-  <div>No trips to show</div>
+  <div class="no-trip">No trips to show</div>
 </ng-template>

@@ -30,7 +30,7 @@ export class SearchService {
       .pipe(retry(1), catchError(this.handleError));
   }
 
-  // Get info about one particular trip (via the trip ID)
+  // Get info about one particular trip (with trip ID as a parameter)
   getTrip(tripID: string): Observable<any> {
     return this.http
       .get(this.baseAPI + this.tripURL + '/' + tripID + '?key=' + this.APIKEY)
