@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 
+import { environment } from 'src/environments/environment';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -10,7 +12,7 @@ export class SearchService {
   today = new Date().toISOString();
 
   // API urls from blablacar
-  private APIKEY = 'YzbiA8L6DcqxTvSna1lOFQQU66FosDVs';
+  APIKEY = environment.APIKEY;
   private baseAPI = 'https://public-api.blablacar.com/api';
   private getTripsURL =
     '/v3/trips?key=' +

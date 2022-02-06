@@ -19,14 +19,12 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
     this.searchService.getList().subscribe(
       (resultTrips) => {
-        console.log(resultTrips);
         this.numberTrips = resultTrips.search_info.count;
         this.trips = resultTrips.trips;
         this.trips.forEach((trip) => {
           this.searchService
             .getTrip(trip.link.split('id=')[1])
             .subscribe((resultTrip) => {
-              // console.log(resultTrip);
               trip.depart = resultTrip.departure_place.address;
               trip.arrival = resultTrip.arrival_place.address;
               trip.seatLefts = resultTrip.seats_left;
