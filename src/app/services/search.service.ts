@@ -12,7 +12,7 @@ export class SearchService {
   today = new Date().toISOString();
 
   // API urls from blablacar
-  APIKEY = environment.APIKEY;
+  APIKEY = 'YzbiA8L6DcqxTvSna1lOFQQU66FosDVs';
   private baseAPI = 'https://public-api.blablacar.com/api';
   private getTripsURL =
     '/v3/trips?key=' +
